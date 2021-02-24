@@ -13,8 +13,8 @@ const readUser = ({ enterUsers, query, encrypt }) => {
       let message = `Roger, we have a problem!`
       if (res) {
         //insert the encryption Key 
-        encrypt(data) 
-        message = `Welcome`
+        const Enc = await encrypt(data) 
+        message = `Welcome your key is ${Enc}`
         return message
     }
   

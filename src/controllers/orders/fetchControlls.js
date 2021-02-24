@@ -1,4 +1,4 @@
-const readOrder = ({fetchProd}) => {
+const fetchControlls = ({fetchProducts}) => {
     return async function get(httpRequest) {
           const headers = {
             "Content-Type": "application/json",
@@ -16,7 +16,7 @@ const readOrder = ({fetchProd}) => {
               source,
               id: httpRequest.params.id, // when id is passed
             };
-            const view = await fetchProd(toView);
+            const view = await fetchProducts(toView);
             return {
               headers: {
                 "Content-Type": "application/json",
@@ -38,4 +38,4 @@ const readOrder = ({fetchProd}) => {
         };
     }
     
-    module.exports = readOrder
+    module.exports = fetchControlls

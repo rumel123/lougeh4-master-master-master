@@ -1,13 +1,13 @@
- const {reduceStock,fetchProd} = require('../../use-case/orders/app')
+const {fetchProducts,addOrder} = require('../../use-case/orders/app')
+const fetchControlls = require('./fetchControlls')
+const postControlls = require('./postControlls')
 
- const reduceData = require('./reducestock')
- const readOrder = require('./readData')
- const reduceDatas = reduceData({reduceStock})
- const readOrders = readOrder({fetchProd})
+const fetchControll = fetchControlls({fetchProducts})
+const postControll = postControlls({addOrder})
 
- const services = Object.freeze({
-    reduceDatas,readOrders
+const services = Object.freeze({
+    fetchControll,postControll
 })
 
 module.exports = services
-module.exports = {reduceDatas,readOrders}
+module.exports = {fetchControll,postControll}

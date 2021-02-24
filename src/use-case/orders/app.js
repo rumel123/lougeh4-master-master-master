@@ -1,14 +1,16 @@
-const valStock = require('../../entities/orders/app')
 const query = require('../../data-access/connection/orders/app')
-const randomstring = require('randomstring')
 
-const reduceStocks = require('./stocksSub')
-const fetchProdOrders = require('./fetchProdOrders')
-const reduceStock = reduceStocks({valStock,query,randomstring})
-const fetchProd = fetchProdOrders({query})
+
+const fetchProduct = require('./fetchProducts')
+const addOrders = require('./addOrders')
+
+const fetchProducts = fetchProduct({query})
+const addOrder = addOrders({query})
+
+
 const services = Object.freeze({
-    reduceStock,fetchProd
+    fetchProducts,addOrder
 })
 
 module.exports = services
-module.exports = {reduceStock,fetchProd}
+module.exports = {fetchProducts,addOrder}

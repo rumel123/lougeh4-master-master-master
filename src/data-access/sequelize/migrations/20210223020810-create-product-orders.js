@@ -25,9 +25,9 @@ module.exports = {
       },
       product_total: {
         type: Sequelize.INTEGER
-      },
-      product_customer: {
-        type: Sequelize.STRING
+      }, 
+      original_product_id:{
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
