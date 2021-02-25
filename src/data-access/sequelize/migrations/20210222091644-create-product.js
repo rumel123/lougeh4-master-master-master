@@ -28,10 +28,7 @@ module.exports = {
       },
       Expiry_date: {
         type: Sequelize.DATE
-      },
-      delivery_code: {
-        type: Sequelize.STRING
-      },
+      }, 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

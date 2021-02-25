@@ -1,11 +1,12 @@
-const sanitizeData = require('./makeProduct')
+const randomString = require('randomstring')
+const makeProducts = require('./makeValProduct')
 
-const DataSanitize = sanitizeData({})
+const makeProduct = makeProducts({randomString})
 
 
 const services = Object.freeze({
-    DataSanitize
+    makeProduct
 })
 
 module.exports = services
-module.exports = DataSanitize
+module.exports = makeProduct

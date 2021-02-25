@@ -1,4 +1,4 @@
-const {createData,readData} = require('../../controllers/supplier/app')
+const {createData,readData,updateData} = require('../../controllers/supplier/app')
 
 const route = ({router,makeExpressCallback}) => {
     //configure route and attached callbacks with controller
@@ -7,6 +7,8 @@ const route = ({router,makeExpressCallback}) => {
     router.get('/supplier/:id',makeExpressCallback(readData))
     //create supplier
     router.post('/supplier',makeExpressCallback(createData))
+    //update  Supplier Info
+    router.patch('/supplier/info/:id',makeExpressCallback(updateData))    
 
     return router
 }

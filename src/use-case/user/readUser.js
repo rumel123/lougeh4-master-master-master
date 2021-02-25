@@ -14,10 +14,11 @@ const readUser = ({ enterUsers, query, encrypt }) => {
       if (res) {
         //insert the encryption Key 
         const Enc = await encrypt(data) 
-        message = `Welcome your key is ${Enc}`
-        return message
+        const resArr = {
+          message:"Welcome!!",SecretKey:Enc
+        } 
+        return resArr
     }
-  
     };
   };
   

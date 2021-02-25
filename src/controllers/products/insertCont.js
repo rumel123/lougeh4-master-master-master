@@ -1,5 +1,5 @@
-const readCode = ({fetchDeliveryCode}) => {
-    return async function get(httpRequest) {
+const insertDatas = ({addProduct}) => {
+    return async function post(httpRequest) {
           const headers = {
             "Content-Type": "application/json",
           };
@@ -11,25 +11,24 @@ const readCode = ({fetchDeliveryCode}) => {
             if (httpRequest.headers["Referer"]) {
               source.referrer = httpRequest.headers["Referer"];
             }
-            const toView = {
+            const posted  = await addProduct({
               ...info,
-              source,
-              id: httpRequest.params.id, // when id is passed
-            };
-            const view = await fetchDeliveryCode(toView);
+              source, 
+            });
+          
             return {
               headers: {
                 "Content-Type": "application/json",
               },
-              statusCode: 200,
-              body: { view },
+              statusCode: 201,
+              body: { posted  },
             };
           } catch (e) {
             // TODO: Error logging
             console.log(e);
             return {
               headers,
-              statusCode: 204,
+              statusCode: 406,
               body: {
                 error: e.message,
               },
@@ -38,4 +37,4 @@ const readCode = ({fetchDeliveryCode}) => {
         };
     }
     
-    module.exports = readCode
+    module.exports = insertDatas

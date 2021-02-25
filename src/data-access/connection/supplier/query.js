@@ -3,7 +3,8 @@ const supplierQuery = ({ connections, models }) => {
             insertSupplier,
             fetchAllSupplier,
             fetchSupplier,
-            validateSupplierName
+            validateSupplierName,
+            UpdateSupplier
     })
 //if the supplier name is already exist
 async function validateSupplierName({ data }) {
@@ -75,7 +76,25 @@ async function validateSupplierName({ data }) {
             console.log("Error: ", e)
         }
     }
-        
+          //if the supplier selected fetch the details
+    async function UpdateSupplier({data}) {
+        try { 
+            const Supplier = await models.supplier
+            const { id,contact,address } =  data 
+            const res = await Supplier.update({
+                contact:contact,
+                address:address
+            },
+            {
+                where:{supplier_id:id},
+            }
+            ) 
+            return res 
+        }
+        catch (e) {
+            console.log("Error: ", e)
+        }
+    }
 
 
 }

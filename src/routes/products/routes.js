@@ -1,15 +1,13 @@
-const {createData,readDC,fetchedData} = require('../../controllers/products/app')
+const {insertData,viewData} = require('../../controllers/products/app')
 
 const route = ({router,makeExpressCallback}) => {
-    //insert Deliveries 
-    router.post('/products/add/',makeExpressCallback(createData))
-    //fetch Delivery_code
-    router.get('/products/delivery-code/',makeExpressCallback(readDC))
-    //fetch All product
-    router.get('/products/',makeExpressCallback(fetchedData))
-    //fetch product with id
-    router.get('/products/:id',makeExpressCallback(fetchedData))
-
+    //configure route and attached callbacks with controller
+    //add Products
+    router.post('/products/insert/',makeExpressCallback(insertData))
+    //fetch products
+    router.get('/products/',makeExpressCallback(viewData))
+    router.get('/products/:id',makeExpressCallback(viewData))
     return router
 }
+
 module.exports = route

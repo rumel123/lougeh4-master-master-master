@@ -1,8 +1,7 @@
- 
-const fetchAllProduct = ({query}) => {
+const viewProduct = ({ query }) => {
     return async function select(info) {
         let data = []
-        let {id} = info
+        const { id } = info
         if(id)
         {
             const res = await query.fetchProductWithID(id)
@@ -61,4 +60,5 @@ const fetchAllProduct = ({query}) => {
     }
 }
 
-module.exports = fetchAllProduct
+
+module.exports = viewProduct

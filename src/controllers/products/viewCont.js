@@ -1,4 +1,4 @@
-const fetchedData = ({fetchProduct}) => {
+const viewDatas = ({viewProduct}) => {
     return async function get(httpRequest) {
           const headers = {
             "Content-Type": "application/json",
@@ -16,7 +16,7 @@ const fetchedData = ({fetchProduct}) => {
               source,
               id: httpRequest.params.id, // when id is passed
             };
-            const view = await fetchProduct(toView);
+            const view = await viewProduct(toView);
             return {
               headers: {
                 "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const fetchedData = ({fetchProduct}) => {
             console.log(e);
             return {
               headers,
-              statusCode: 204,
+              statusCode: 400,
               body: {
                 error: e.message,
               },
@@ -38,4 +38,4 @@ const fetchedData = ({fetchProduct}) => {
         };
     }
     
-    module.exports = fetchedData
+    module.exports = viewDatas
