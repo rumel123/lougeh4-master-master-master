@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     suppliername: DataTypes.STRING,
-    delivery_received_date: DataTypes.DATE,
+    delivery_received_date: DataTypes.STRING,
     delivery_code: DataTypes.STRING
   }, {
     sequelize,

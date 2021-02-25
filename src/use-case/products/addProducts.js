@@ -37,7 +37,7 @@ const addProducts = ({ makeProduct, query }) => {
         delivery_code:data.rand 
       }   
         //if exist, add only the quantity create new if not exist
-    //  const resINS = await query.insertProducts(datas)
+    const resINS = await query.insertProducts(datas)
     }
     //record delivery
     const res = await query.insertDeliveries({data}) 

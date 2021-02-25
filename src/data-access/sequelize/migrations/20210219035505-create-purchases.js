@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       date_of_purchase: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       order_id: {
         type: Sequelize.INTEGER

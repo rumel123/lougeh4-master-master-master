@@ -1,8 +1,10 @@
 const encrypts = ({jwt,dotenv}) => {
-    return async function(text){ 
-            dotenv.config() 
-            const accesstokens = jwt.sign(text,process.env.ACCESS_TOKEN_KEY)  
-            return accesstokens 
+    return function(text){ 
+            dotenv.config()
+            const tokens = { text}
+            const accesstokens = jwt.sign(tokens,process.env.ACCESS_TOKEN_KEY)
+            return accesstokens
+           
     }
 }
 

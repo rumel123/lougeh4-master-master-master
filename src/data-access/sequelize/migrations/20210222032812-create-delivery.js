@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       delivery_received_date: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       delivery_code: {
         type: Sequelize.STRING

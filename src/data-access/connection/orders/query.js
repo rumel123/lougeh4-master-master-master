@@ -55,7 +55,7 @@ const Query = ({ connections, models }) => {
         pool.query(
           `UPDATE public.products
             SET  stocks= stocks - ${product_quantity}
-            WHERE product_barcode = $1
+            WHERE product_barcode = $1 AND
             product_name = $2;`,
           [product_barcode, product_name],
           (err, res) => {
@@ -63,33 +63,34 @@ const Query = ({ connections, models }) => {
             resolve(res);
           }
         );
-      });
+      }); 
       return res;
     } catch (error) {
       console.log(`Error: error on reading songs`, error.message);
     }
   }
   //customer Details
-  async function Customer({ data }) {
+  async function Customer( data ) {
     try {
       const Customer = await models.customers;
-
+    const  { customer_name,customer_address,contact_number } = data;
       const result = await Customer.create({
-        fullname: data.fullname,
-        contact: data.contact,
-        address: data.address,
-      });
+        fullname: customer_name,
+        contact: customer_address,
+        address: contact_number,
+      }); 
       return result;
     } catch (error) {
       console.log(error.message);
     }
   }
   //validate if customer is exist
-  async function validationCustomerName({ data }) {
+  async function validationCustomerName( data ) {
     try {
-      const { fullname } = data;
-      const Customer = await models.customers;
-      const res = await Customer.findAll({ where: { fullname: fullname } });
+      const { customer_name } = data;
+     const Customer = await models.customers;
+      const res = await Customer.findAll({ where: { fullname: customer_name } }); 
+      
       return res;
     } catch (e) {
       console.log("Error: ", e);

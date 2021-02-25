@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       order_date: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       total_payment: {
         type: Sequelize.INTEGER

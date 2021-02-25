@@ -1,6 +1,6 @@
 const {fetchControll,postControll} = require('../../controllers/orders/app') 
 
-const route = ({router,makeExpressCallback}) => {
+const route = ({router,makeExpressCallback,decrypt,middlewares})=> {
     //configure route and attached callbacks with controller
     //fetch all data
 

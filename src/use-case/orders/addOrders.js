@@ -21,7 +21,7 @@ const addOrders = ({ query, OrdersValidation }) => {
       const Price = ItemArray[i].Price;
       const Total = ItemArray[i].Total;
      // insert Data to Product Order
-      const insertOrder = await query.InsertOrder({
+   /*   const insertOrder = await query.InsertOrder({
         product_barcode: barcode,
         product_name: Product_name,
         product_quantity: Quantity,
@@ -35,12 +35,12 @@ const addOrders = ({ query, OrdersValidation }) => {
         product_barcode: barcode,
         product_name: Product_name,
         product_quantity: Quantity,
-      }) 
+      }) */
     } 
     //insert customer Details
-     const valCus = await query.validationCustomerName({data}) 
-    const lengths = valCus.length 
-     if(lengths < 0){ await query.Customer({data})}
+     const valCus = await query.validationCustomerName(data)   
+    const lengths = valCus.length  
+     if(lengths <= 0){ const newCust = await query.Customer(data) }
     //insert Order
     const res = await query.insertOrders({
         order_code:data.Rand,
@@ -48,7 +48,7 @@ const addOrders = ({ query, OrdersValidation }) => {
         total_payment:Totals,
         customer_name:data.customer_name,
     })
-    if(res) {message = `Song is Successfully Insert!!`        
+    if(res) {message = `Transactions is Successfully Finished!!`        
     return message}
     throw new Error(`Roger, We have a Problem!`)
   };

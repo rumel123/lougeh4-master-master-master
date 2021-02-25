@@ -69,7 +69,6 @@ const productQuery = ({ connections, models }) => {
             delivery_received_date: Date_Received,
             delivery_code: rand
         }) 
-        console.log(data)
         return result
     } catch (error) {
         console.log(error.message)

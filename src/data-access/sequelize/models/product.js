@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     cost_unit: DataTypes.STRING,
     price: DataTypes.INTEGER,
     stocks: DataTypes.INTEGER,
-    Expiry_date: DataTypes.DATE 
+    Expiry_date: DataTypes.STRING 
   }, {
     sequelize,
     modelName: 'product',
