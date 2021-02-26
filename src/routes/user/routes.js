@@ -2,9 +2,9 @@ const {regesterUser,removeUser,verifyLog,editUser}  = require('../../controllers
 
 const route = ({router,makeExpressCallback,decrypt,middlewares}) => {
     //login 
-     router.post('/login/',middlewares,decrypt,makeExpressCallback(verifyLog))
+     router.post('/login/' ,makeExpressCallback(verifyLog))
     //create User
-    router.post('/register/',middlewares,decrypt,makeExpressCallback(regesterUser))
+    router.post('/register/' ,makeExpressCallback(regesterUser))
     //remove User
     router.delete('/user/remove/:id',middlewares,decrypt,makeExpressCallback(removeUser))
     //change Password or User role

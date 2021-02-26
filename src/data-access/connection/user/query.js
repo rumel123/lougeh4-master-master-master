@@ -12,6 +12,8 @@ const Query = ({ connections, models }) => {
       try {
         const Users = models.users;
         const result = await Users.create({
+          firstname: data.firstname,
+          lastname: data.lastname,
           username: data.username,
           password: data.password,
           role: data.role,

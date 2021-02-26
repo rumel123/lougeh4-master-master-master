@@ -18,13 +18,13 @@ const addProducts = ({ makeProduct, query }) => {
       const quantity = DataArray[i].quantity;
       const Expiry_date = DataArray[i].Expiry_date;
         //validate if data Array is empty
-      if (!product_barcode) { throw new Error(`Please fill in the blank!`) }
-      if (!product_name) { throw new Error(`Please fill in the blank!`) }
-      if (!product_description) { throw new Error(`Please fill in the blank!`) }
-      if (!cost_unit) { throw new Error(`Please fill in the blank!`) }
-      if (!price) { throw new Error(`Please fill in the blank!`) }
-      if (!quantity) { throw new Error(`Please fill in the blank!`) }
-      if (!Expiry_date) { throw new Error(`Please fill in the blank!`) }
+      if (!product_barcode) { throw new Error(`Barcode is missing!`) }
+      if (!product_name) { throw new Error(`Product Name is missing!`) }
+      if (!product_description) { throw new Error(`Description is missing!`) }
+      if (!cost_unit) { throw new Error(`Unit cost is missing!`) }
+      if (!price) { throw new Error(`Price is Missing!`) }
+      if (!quantity) { throw new Error(`Quantity is missing!`) }
+      if (!Expiry_date) { throw new Error(`Expiry Date is missing!`) }
         //check if item is exist
       const datas = {
         product_barcode:product_barcode,

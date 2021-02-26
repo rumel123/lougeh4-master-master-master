@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
-    },
+    }, 
+    firstname: DataTypes.STRING,
+    lastname: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     role: DataTypes.STRING

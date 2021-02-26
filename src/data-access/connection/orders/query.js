@@ -7,6 +7,8 @@ const Query = ({ connections, models }) => {
     Customer,
     validationCustomerName,
     insertOrders,
+    fetchOrders,
+    fetchProductOrders
   });
   //fetch all items
   //fetch product based on id
@@ -106,6 +108,26 @@ const Query = ({ connections, models }) => {
         total_payment: data.total_payment,
         customer_name: data.customer_name,
       });
+      return res;
+    } catch (e) {
+      console.log("Error: ", e);
+    }
+  }
+   //fetch orders 
+   async function fetchOrders() {
+    try {
+      const Orders = await models.orders;
+      const res = await Orders.findAll()
+      return res;
+    } catch (e) {
+      console.log("Error: ", e);
+    }
+  }
+   //fetch Product orders 
+   async function fetchProductOrders(id) {
+    try {
+      const Orders = await models.product_orders;
+      const res = await Orders.findAll({ where: { product_barcode: id } })
       return res;
     } catch (e) {
       console.log("Error: ", e);

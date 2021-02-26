@@ -2,6 +2,8 @@ const createUser = ({ makeUsers, query }) => {
     return async function post(info) {
       let datas = await makeUsers(info);
       let data = {
+        firstname:datas.getF(),
+        lastname:datas.getL(),
         username: datas.getU(),
         password: datas.getP(),
         role: datas.getR(),
